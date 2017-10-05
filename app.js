@@ -3,6 +3,9 @@ var routes = require("./routes");
 var db = require("./model/db");
 var request = require("request");
 var app = express();
+var cors = require("cors");
+
+app.use(cors());
 
 // Routes
 var humans = require("./routes/humans");
