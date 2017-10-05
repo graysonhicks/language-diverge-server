@@ -1,18 +1,22 @@
 var computerData = require("../model/computers");
 
+function unique(arr) {
+	var o = {},
+		i,
+		l = arr.length,
+		r = [];
+	for (i = 0; i < l; i += 1) o[arr[i]] = arr[i];
+	for (i in o) r.push(o[i]);
+	return r;
+}
+
 exports.list = function(req, res) {
 	computerData.computerList(req.params, function(err, computerList) {
-		var labels = function(computerList) {
-			var hash = {},
-				result = [];
-			for (var i = 0, l = computerList.length; i < l; ++i) {
-				if (!hash.hasOwnProperty(computerList[i].Year)) {
-					hash[computerList[i].Year] = true;
-					result.push(computerList[i].Year);
-				}
-			}
-			return result;
-		};
+		var labels = computerList.map(function(item) {
+			return item.Year;
+		});
+		labels = unique(labels);
+
 		res.send({
 			labels: labels,
 			computers: computerList
