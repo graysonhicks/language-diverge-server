@@ -18,6 +18,7 @@
 	"homepage": "https://github.com/graysonhicks/language-diverge-server#readme",
 	"dependencies": {
 		"express": "^4.15.4",
+		"mongodb": "^2.2.31",
 		"request": "^2.81.0"
 	}
 }
