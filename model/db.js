@@ -9,16 +9,11 @@ var db = mongoose.connection;
 console.log(db);
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", function() {
-	var computerSchema = new mongoose.Schema(
-		{
-			Year: String,
-			Country: String,
-			Languages: String
-		},
-		{
-			collection: "stackoverflow"
-		}
-	);
+	var computerSchema = new mongoose.Schema({
+		Year: Number,
+		Country: String,
+		Languages: String
+	});
 
 	var humanSchema = new mongoose.Schema({
 		Year: String,
