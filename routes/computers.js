@@ -1,7 +1,7 @@
 var computerData = require("../model/computers");
 
 exports.list = function(req, res) {
-	var year = "2016";
+	var year = 2015;
 	computerData.computerList(year, function(err, computerList) {
 		console.log(computerList);
 		res.send({
