@@ -5,7 +5,7 @@ exports.computerList = function computerList(year, callback) {
 		{
 			Year: year
 		},
-		function(err, teams) {
+		function(err, computers) {
 			if (err) {
 				console.log(err);
 			} else {

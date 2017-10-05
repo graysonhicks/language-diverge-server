@@ -5,7 +5,7 @@ exports.humansList = function humansList(year, callback) {
 		{
 			Year: year
 		},
-		function(err, teams) {
+		function(err, humans) {
 			if (err) {
 				console.log(err);
 			} else {
