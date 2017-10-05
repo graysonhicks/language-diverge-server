@@ -6,9 +6,9 @@ exports.list = function(req, res) {
 			var hash = {},
 				result = [];
 			for (var i = 0, l = computerList.length; i < l; ++i) {
-				if (!hash.hasOwnProperty(computerList[i])) {
-					hash[computerList[i]] = true;
-					result.push(computerList[i]);
+				if (!hash.hasOwnProperty(computerList[i].Year)) {
+					hash[computerList[i].Year] = true;
+					result.push(computerList[i].Year);
 				}
 			}
 			return result;
