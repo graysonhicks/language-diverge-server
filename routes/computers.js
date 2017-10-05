@@ -2,7 +2,7 @@ var computerData = require("../model/computers");
 
 exports.list = function(req, res) {
 	computerData.computerList(req.params, function(err, computerList) {
-		var labels = function unique(computerList) {
+		var labels = function(computerList) {
 			var hash = {},
 				result = [];
 			for (var i = 0, l = computerList.length; i < l; ++i) {
