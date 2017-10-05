@@ -16,7 +16,6 @@ exports.list = function(req, res) {
 			return item.Year;
 		});
 		labels = unique(labels);
-		console.log(labels);
 		res.send({
 			labels: labels,
 			computers: computerList

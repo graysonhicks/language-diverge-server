@@ -2,7 +2,7 @@ exports.computerList = function computerList(params, callback) {
 	db
 		.collection("stackoverflow")
 		.find()
-		.limit(10)
+		.limit(1000)
 		.toArray(function(err, computers) {
 			if (err) {
 				console.log(err);
