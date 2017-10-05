@@ -5,7 +5,6 @@ var request = require("request");
 var app = express();
 
 // Routes
-
 var humans = require("./routes/humans");
 var computers = require("./routes/computers");
 
