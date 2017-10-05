@@ -4,6 +4,7 @@ exports.computerList = function computerList(year, callback) {
 		.find({
 			Year: year
 		})
+		.limit(10)
 		.toArray(function(err, computers) {
 			if (err) {
 				console.log(err);
