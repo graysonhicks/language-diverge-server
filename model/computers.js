@@ -9,7 +9,6 @@ exports.computerList = function computerList(year, callback) {
 			if (err) {
 				console.log(err);
 			} else {
-				console.log(computers);
 				callback("", computers);
 			}
 		}); // end Computer.find
