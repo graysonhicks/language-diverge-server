@@ -1,6 +1,4 @@
-var mongoose = require("mongoose");
 exports.humansList = function humansList(year, callback) {
-	var Human = mongoose.model("Human");
 	Human.find(
 		{
 			Year: year

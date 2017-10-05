@@ -1,17 +1,12 @@
-var mongoose = require("mongoose");
 exports.computerList = function computerList(year, callback) {
-	var Computer = mongoose.model("Computer");
-	Computer.find(
-		{
-			Year: year
-		},
-		function(err, computers) {
-			if (err) {
-				console.log(err);
-			} else {
-				console.log(computers);
-				callback("", computers);
-			}
+	db.collection("stackoverflow").find({
+		Year: year
+	}, function(err, computers) {
+		if (err) {
+			console.log(err);
+		} else {
+			console.log(computers);
+			callback("", computers);
 		}
-	); // end Computer.find
+	}); // end Computer.find
 }; // end exports.computerList
