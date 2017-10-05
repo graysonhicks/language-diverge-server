@@ -1,9 +1,7 @@
 exports.computerList = function computerList(year, callback) {
 	db
 		.collection("stackoverflow")
-		.find({
-			Year: year
-		})
+		.find()
 		.limit(10)
 		.toArray(function(err, computers) {
 			if (err) {
