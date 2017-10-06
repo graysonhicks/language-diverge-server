@@ -17,5 +17,5 @@ app.get("/human", humans.list);
 
 app.get("/computer", computers.list);
 
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 3001;
 app.listen(port);
