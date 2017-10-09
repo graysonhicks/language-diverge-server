@@ -8,12 +8,12 @@ var cors = require("cors");
 app.use(cors());
 
 // Routes
-var humans = require("./routes/humans");
 var computers = require("./routes/computers");
+var endangered = require("./routes/endangered");
 
 app.get("/", routes.index);
 
-app.get("/human", humans.list);
+app.get("/endangered", endangered.list);
 
 app.get("/computer", computers.list);
 
