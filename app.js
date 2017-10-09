@@ -10,10 +10,13 @@ app.use(cors());
 // Routes
 var computers = require("./routes/computers");
 var endangered = require("./routes/endangered");
+var historic = require("./routes/historic");
 
 app.get("/", routes.index);
 
 app.get("/endangered", endangered.list);
+
+app.get("/historic", historic.list);
 
 app.get("/computer", computers.list);
 
