@@ -1,7 +1,8 @@
 exports.historicList = function historicList(params, callback) {
 	db
 		.collection("historic")
-		.aggregate([{ $group: { _id: "year" } }])
+		.find()
+		.sort({ year: 1 })
 		.toArray(function(err, languages) {
 			if (err) {
 				console.log(err);
