@@ -1,6 +1,6 @@
 exports.computerList = function computerList(params, callback) {
 	db
-		.collection("stackoverflow")
+		.collection("so2012")
 		.find()
 		.toArray(function(err, computers) {
 			if (err) {
