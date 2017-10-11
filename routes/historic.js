@@ -7,8 +7,19 @@ exports.list = function(req, res, mjs) {
 				console.log(v);
 				res.send(v.toString());
 			} else {
-				res.send({
+				var newV = {
 					data: historicList
+				};
+				mjs.set("historic", newV, function(err) {
+					if (err) {
+						console.log("Error setting key: " + err);
+						res.render("error", {
+							message: err.message,
+							error: err
+						});
+					} else {
+						res.send(newV);
+					}
 				});
 			}
 		});
