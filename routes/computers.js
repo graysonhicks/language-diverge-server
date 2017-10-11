@@ -1,6 +1,6 @@
 var computerData = require("../model/computers");
 
-exports.list = function(req, res) {
+exports.list = function(req, res, mjs) {
 	computerData.computerList(req.params, function(err, computersList) {
 		mjs.get("computer", function(err, v) {
 			if (v) {
