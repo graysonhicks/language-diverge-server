@@ -31,7 +31,17 @@ app.get("/extinct", extinct.list);
 
 app.get("/historic", historic.list);
 
-app.get("/computer", computers.list);
+// app.get("/computer", computers.list);
+
+app.get("/computer", function(req, res) {
+	mjs.get("computer", function(err, v) {
+		if (v) {
+			res.send(v);
+		} else {
+			computers.list(req, res, mjs);
+		}
+	});
+});
 
 var port = process.env.PORT || 3001;
 app.listen(port);
