@@ -5,11 +5,11 @@ exports.list = function(req, res, mjs) {
 		mjs.get("historic", function(err, v) {
 			if (v) {
 				console.log(v);
-				var json = JSON.stringify(v);
+				var json = JSON.parse(v.toString());
 				res.send({ data: json });
 			} else {
 				var newV = historicList;
-				newV = newV.toString();
+				newV = JSON.stringify(newV);
 				mjs.set("historic", newV, function(err, val) {
 					if (err) {
 						console.log("Error setting key: " + err);
@@ -18,7 +18,7 @@ exports.list = function(req, res, mjs) {
 							error: err
 						});
 					} else {
-						var json = JSON.stringify(val);
+						var json = JSON.parse(val.toString());
 						res.send({ data: json });
 					}
 				});
