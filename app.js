@@ -15,7 +15,9 @@ var endangered = require("./routes/endangered");
 var extinct = require("./routes/extinct");
 var historic = require("./routes/historic");
 
-app.get("/", routes.index);
+app.get("/", function(req, res) {
+	routes.index(req, res, mjs);
+});
 
 app.get("/endangered", endangered.list);
 
