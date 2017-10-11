@@ -21,7 +21,9 @@ app.get("/endangered", endangered.list);
 
 app.get("/extinct", extinct.list);
 
-app.get("/historic", historic.list(req, res, mjs));
+app.get("/historic", function(req, res) {
+	historic.list(req, res, mjs);
+});
 
 app.get("/computer", computers.list);
 
