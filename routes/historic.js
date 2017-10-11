@@ -4,8 +4,8 @@ exports.list = function(req, res, mjs) {
 	historicData.historicList(req.params, function(err, historicList) {
 		mjs.get("historic", function(err, v) {
 			if (v) {
-				console.log(v);
-				var json = JSON.parse(v.toString());
+				console.log(v.toString());
+				var json = v.toJSON();
 				console.log(json);
 				res.send({ data: json });
 			} else {
