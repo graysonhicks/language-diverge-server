@@ -5,11 +5,9 @@ exports.list = function(req, res, mjs) {
 		mjs.get("historic", function(err, v) {
 			if (v) {
 				var json = JSON.parse(v.toString());
-
 				res.send({ data: json });
 			} else {
 				var newV = historicList;
-				console.log(newV);
 				newV = JSON.stringify(newV);
 				mjs.set("historic", newV, function(err, val) {
 					if (err) {
@@ -20,7 +18,6 @@ exports.list = function(req, res, mjs) {
 						});
 					} else {
 						var json = JSON.parse(val.toString());
-
 						res.send({ data: json });
 					}
 				});

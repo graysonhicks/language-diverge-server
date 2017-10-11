@@ -1,8 +1,8 @@
 exports.index = function(req, res, mjs) {
 	mjs.get("home", function(err, v) {
 		if (v) {
-			console.log(v);
-			res.send({ data: v.toString() });
+			var json = JSON.parse(v.toString());
+			res.send({ data: json });
 		} else {
 			var newV = {
 				title: "Test web page on node.js using Express",
@@ -10,9 +10,10 @@ exports.index = function(req, res, mjs) {
 				group: "D",
 				teams: [{ country: "England" }, { country: "France" }, { country: "Sweden" }, { country: "Ukraine" }]
 			};
-			newV = newV.toString();
+			newV = JSON.stringify(newV);
 			mjs.set("home", newV, function(err, val) {
-				res.send({ data: val.toString() });
+				var json = JSON.parse(val.toString());
+				res.send({ data: json });
 			});
 		}
 	});
