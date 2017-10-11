@@ -4,7 +4,9 @@ var db = require("./model/db");
 var request = require("request");
 var app = express();
 var cors = require("cors");
+var memjs = require("memjs").Client;
 
+var mjs = memjs.create();
 app.use(cors());
 
 // Routes
@@ -13,7 +15,15 @@ var endangered = require("./routes/endangered");
 var extinct = require("./routes/extinct");
 var historic = require("./routes/historic");
 
-app.get("/", routes.index);
+app.get("/", function(req, res) {
+	mjs.get("home", function(err, v) {
+		if (v) {
+			res.send(v);
+		} else {
+			routes.index(req, res, mjs);
+		}
+	});
+});
 
 app.get("/endangered", endangered.list);
 

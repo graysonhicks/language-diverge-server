@@ -8,22 +8,26 @@ exports.historicList = function historicList(params, callback) {
 				console.log(err);
 			} else {
 				db.collection("historic").distinct("year", function(err, uniqueYears) {
-					languages = languages.map(item => {
-						var years = [];
-						for (var i = 0; i < uniqueYears.length; i++) {
-							if (item.year == uniqueYears[i]) {
-								years.push(1);
-							} else {
-								years.push(0);
+					if (err) {
+						console.log(err);
+					} else {
+						languages = languages.map(item => {
+							var years = [];
+							for (var i = 0; i < uniqueYears.length; i++) {
+								if (item.year == uniqueYears[i]) {
+									years.push(1);
+								} else {
+									years.push(0);
+								}
 							}
-						}
-						return {
-							label: item.language,
-							backgroundColor: "#" + Math.floor(Math.random() * 16777215).toString(16),
-							data: years
-						};
-					});
-					callback("", { languages: languages, uniqueYears: uniqueYears });
+							return {
+								label: item.language,
+								backgroundColor: "#" + Math.floor(Math.random() * 16777215).toString(16),
+								data: years
+							};
+						});
+						callback("", { languages: languages, uniqueYears: uniqueYears });
+					}
 				});
 			}
 		}); // end historic.find
