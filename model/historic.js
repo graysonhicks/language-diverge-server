@@ -1,3 +1,22 @@
+var colors = [#29a390,
+	#8f93ff,
+	#c7c9ff,
+	#0f147f,
+	#161cb5,
+	#ffd780,
+	#ffebbf,
+	#b37a00,
+	#ffaf00,
+	#ffaf80,
+#ffd7bf,
+#b34300,
+	#ff5f00,
+#80fff7,
+	#bffffb,
+	#006d66,
+	#009c92
+];
+
 exports.historicList = function historicList(params, callback) {
 	db
 		.collection("historic")
@@ -22,7 +41,7 @@ exports.historicList = function historicList(params, callback) {
 							}
 							return {
 								label: item.language,
-								backgroundColor: "#" + Math.floor(Math.random() * 16777215).toString(16),
+								backgroundColor:  colors[Math.floor(Math.random()*colors.length)],
 								data: years
 							};
 						});
