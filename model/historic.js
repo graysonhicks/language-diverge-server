@@ -7,7 +7,9 @@ exports.historicList = function historicList(params, callback) {
 			if (err) {
 				console.log(err);
 			} else {
-				callback("", languages);
+				db.collection("historic").distinct("year", function(err, years) {
+					callback("", { languages: languages, years: years });
+				});
 			}
 		}); // end historic.find
 }; // end exports.historicList
