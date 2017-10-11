@@ -15,15 +15,7 @@ var endangered = require("./routes/endangered");
 var extinct = require("./routes/extinct");
 var historic = require("./routes/historic");
 
-app.get("/", function(req, res) {
-	mjs.get("home", function(err, v) {
-		if (v) {
-			res.send(v);
-		} else {
-			routes.index(req, res, mjs);
-		}
-	});
-});
+app.get("/", routes.index);
 
 app.get("/endangered", endangered.list);
 
@@ -31,17 +23,7 @@ app.get("/extinct", extinct.list);
 
 app.get("/historic", historic.list);
 
-// app.get("/computer", computers.list);
-
-app.get("/computer", function(req, res) {
-	mjs.get("computer", function(err, v) {
-		if (v) {
-			res.send(v);
-		} else {
-			computers.list(req, res, mjs);
-		}
-	});
-});
+app.get("/computer", computers.list);
 
 var port = process.env.PORT || 3001;
 app.listen(port);

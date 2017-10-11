@@ -1,9 +1,7 @@
 var computerData = require("../model/computers");
 
-exports.list = function(req, res, mjs) {
+exports.list = function(req, res) {
 	computerData.computerList(req.params, function(err, computersList) {
-		mjs.set("computer", { data: computersList }, function(err, val) {
-			res.send({ data: val });
-		});
+		res.send({ data: computersList });
 	});
 };
