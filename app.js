@@ -27,7 +27,9 @@ app.get("/historic", function(req, res) {
 	historic.list(req, res, mjs);
 });
 
-app.get("/computer", computers.list);
+app.get("/computer", function(req, res) {
+	computers.list(req, res, mjs);
+});
 
 var port = process.env.PORT || 3001;
 app.listen(port);
