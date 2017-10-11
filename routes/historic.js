@@ -6,6 +6,7 @@ exports.list = function(req, res, mjs) {
 			if (v) {
 				console.log(v);
 				var json = JSON.parse(v.toString());
+				console.log(json);
 				res.send({ data: json });
 			} else {
 				var newV = historicList;
@@ -18,7 +19,9 @@ exports.list = function(req, res, mjs) {
 							error: err
 						});
 					} else {
+						console.log(val);
 						var json = JSON.parse(val.toString());
+						console.log(json);
 						res.send({ data: json });
 					}
 				});
