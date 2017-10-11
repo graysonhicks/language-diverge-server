@@ -5,7 +5,8 @@ exports.list = function(req, res, mjs) {
 		mjs.get("historic", function(err, v) {
 			if (v) {
 				console.log(v);
-				res.send({ data: v.toString() });
+				var json = JSON.stringify(v);
+				res.send({ data: json });
 			} else {
 				var newV = historicList;
 				newV = newV.toString();
@@ -17,7 +18,8 @@ exports.list = function(req, res, mjs) {
 							error: err
 						});
 					} else {
-						res.send({ data: val.toString() });
+						var json = JSON.stringify(val);
+						res.send({ data: json });
 					}
 				});
 			}
