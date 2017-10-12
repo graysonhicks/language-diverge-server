@@ -19,7 +19,9 @@ app.get("/", function(req, res) {
 	routes.index(req, res, mjs);
 });
 
-app.get("/endangered", endangered.list);
+app.get("/endangered", function(req, res) {
+	endangered.list(req, res, mjs);
+});
 
 app.get("/extinct", extinct.list);
 
