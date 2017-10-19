@@ -1,13 +1,13 @@
 var extinctData = require("../model/extinct");
 
 exports.list = function(req, res, mjs) {
-	extinctData.exinctList(req.params, function(err, exinctList) {
+	extinctData.extinctList(req.params, function(err, extinctList) {
 		mjs.get("extinct", function(err, v) {
 			if (v) {
 				var json = JSON.parse(v.toString());
 				res.send({ data: json });
 			} else {
-				var newV = exinctList;
+				var newV = extinctList;
 				newV = JSON.stringify(newV);
 				mjs.set("extinct", newV, function(err, val) {
 					if (err) {
