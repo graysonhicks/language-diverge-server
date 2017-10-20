@@ -42,7 +42,9 @@ exports.extinctList = function extinctList(params, callback) {
 							return {
 								label: item.language,
 								backgroundColor: colors[Math.floor(Math.random() * colors.length)],
-								data: years
+								data: years,
+								latitude: item.latitude,
+								longitude: item.longitude
 							};
 						});
 						callback("", { languages: languages, uniqueYears: uniqueYears });
