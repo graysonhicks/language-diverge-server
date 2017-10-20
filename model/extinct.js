@@ -1,3 +1,23 @@
+var colors = [
+	"#29a390",
+	"#8f93ff",
+	"#c7c9ff",
+	"#0f147f",
+	"#161cb5",
+	"#ffd780",
+	"#ffebbf",
+	"#b37a00",
+	"#ffaf00",
+	"#ffaf80",
+	"#ffd7bf",
+	"#b34300",
+	"#ff5f00",
+	"#80fff7",
+	"#bffffb",
+	"#006d66",
+	"#009c92"
+];
+
 exports.extinctList = function extinctList(params, callback) {
 	db
 		.collection("extinct")
