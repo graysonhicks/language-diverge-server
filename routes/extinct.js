@@ -5,12 +5,12 @@ exports.list = function(req, res, mjs) {
 		mjs.get("extinct", function(err, v) {
 			if (v) {
 				var json = JSON.parse(v.toString());
-				console.log("existing data", json);
+
 				res.send({ data: json });
 			} else {
 				var newV = extinctList;
 				newV = JSON.stringify(newV);
-				console.log("new data pre json", newV);
+
 				mjs.set("extinct", newV, function(err, val) {
 					if (err) {
 						console.log("Error setting key: " + err);
@@ -19,9 +19,9 @@ exports.list = function(req, res, mjs) {
 							error: err
 						});
 					} else {
-						var json = JSON.parse(val.toString());
-						console.log("new data post json", json);
-						res.send({ data: json });
+						// var json = JSON.parse(val.toString());
+
+						res.send(JSON.stringify({ data: val.toString() }));
 					}
 				});
 			}
