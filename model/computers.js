@@ -6,6 +6,10 @@ exports.computerList = function computerList(params, callback) {
 			if (err) {
 				console.log(err);
 			} else {
+				computers = computers.map(item => {
+					item.languages = item.languages.split(",");
+					return item;
+				});
 				callback("", computers);
 			}
 		}); // end Computer.find
