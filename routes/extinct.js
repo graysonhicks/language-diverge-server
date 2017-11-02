@@ -21,7 +21,7 @@ exports.list = function(req, res, mjs) {
 					} else {
 						var json = JSON.parse(val.toString());
 
-						res.json({ data: json });
+						res.send({ data: json });
 					}
 				});
 			}
