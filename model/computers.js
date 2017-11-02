@@ -7,7 +7,7 @@ exports.computerList = function computerList(params, callback) {
 				console.log(err);
 			} else {
 				computers = computers.map(item => {
-					item.languages = item.languages.split(",");
+					item.languages = item.languages.split(";");
 					return item;
 				});
 				callback("", computers);
