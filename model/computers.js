@@ -25,9 +25,9 @@ exports.computerList = function computerList(params, callback) {
 								item.languages = item.languages.split(";");
 								return item;
 							});
+							callback("", computers);
 						}
 					}); // end Computer.find
-				callback("", computers);
 			}
 		}); // end Computer.find
 }; // end exports.computerList
