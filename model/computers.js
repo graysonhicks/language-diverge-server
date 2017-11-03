@@ -1,8 +1,7 @@
-var computers = [
+var computers = {
 	"2011": [],
 	"2012": []
-
-]
+};
 exports.computerList = function computerList(params, callback) {
 	db
 		.collection("so2011")
@@ -28,7 +27,6 @@ exports.computerList = function computerList(params, callback) {
 					item.languages = item.languages.split(";");
 					return item;
 				});
-
 			}
 		}); // end Computer.find
 	callback("", computers);
