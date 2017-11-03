@@ -19,7 +19,7 @@ exports.computerList = function computerList(params, callback) {
 			if (err) {
 				console.log(err);
 			} else {
-				computers["so2016"] = _.countBy(
+				computers["so2011"] = _.countBy(
 					so2011.map(item => {
 						var languages = item.languages.split(";");
 						for (var i = 0; i < languages.length; i++) {
@@ -34,7 +34,7 @@ exports.computerList = function computerList(params, callback) {
 						if (err) {
 							console.log(err);
 						} else {
-							computers["so2016"] = _.countBy(
+							computers["so2012"] = _.countBy(
 								so2012.map(item => {
 									var languages = item.languages.split(";");
 									for (var i = 0; i < languages.length; i++) {
@@ -49,7 +49,7 @@ exports.computerList = function computerList(params, callback) {
 									if (err) {
 										console.log(err);
 									} else {
-										computers["so2016"] = _.countBy(
+										computers["so2013"] = _.countBy(
 											so2013.map(item => {
 												var languages = item.languages.split(";");
 												for (var i = 0; i < languages.length; i++) {
@@ -64,7 +64,7 @@ exports.computerList = function computerList(params, callback) {
 												if (err) {
 													console.log(err);
 												} else {
-													computers["so2016"] = _.countBy(
+													computers["so2014"] = _.countBy(
 														so2014.map(item => {
 															var languages = item.languages.split(";");
 															for (var i = 0; i < languages.length; i++) {
@@ -79,7 +79,7 @@ exports.computerList = function computerList(params, callback) {
 															if (err) {
 																console.log(err);
 															} else {
-																computers["so2016"] = _.countBy(
+																computers["so2015"] = _.countBy(
 																	so2015.map(item => {
 																		var languages = item.languages.split(";");
 																		for (var i = 0; i < languages.length; i++) {
