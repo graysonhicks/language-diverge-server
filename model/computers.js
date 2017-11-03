@@ -13,9 +13,9 @@ exports.computerList = function computerList(params, callback) {
 				console.log(err);
 			} else {
 				computers["2011"] = so2011.map(item => {
-					item.languages.split(";");
-					for (var i = 0; i < item.languages.length; i++) {
-						return item.languages[i];
+					var languages = item.languages.split(";");
+					for (var i = 0; i < languages.length; i++) {
+						return languages[i];
 					}
 				});
 				db
@@ -26,9 +26,9 @@ exports.computerList = function computerList(params, callback) {
 							console.log(err);
 						} else {
 							computers["2012"] = so2012.map(item => {
-								item.languages.split(";");
-								for (var i = 0; i < item.languages.length; i++) {
-									return item.languages[i];
+								var languages = item.languages.split(";");
+								for (var i = 0; i < languages.length; i++) {
+									return languages[i];
 								}
 							});
 
