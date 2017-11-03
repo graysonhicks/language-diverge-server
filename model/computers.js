@@ -12,12 +12,14 @@ exports.computerList = function computerList(params, callback) {
 			if (err) {
 				console.log(err);
 			} else {
-				computers["2011"] = so2011.map(item => {
-					var languages = item.languages.split(";");
-					for (var i = 0; i < languages.length; i++) {
-						return languages[i];
-					}
-				});
+				computers["2011"] = _.countBy(
+					so2011.map(item => {
+						var languages = item.languages.split(";");
+						for (var i = 0; i < languages.length; i++) {
+							return languages[i];
+						}
+					})
+				);
 				db
 					.collection("so2012")
 					.find()
@@ -25,12 +27,14 @@ exports.computerList = function computerList(params, callback) {
 						if (err) {
 							console.log(err);
 						} else {
-							computers["2012"] = so2012.map(item => {
-								var languages = item.languages.split(";");
-								for (var i = 0; i < languages.length; i++) {
-									return languages[i];
-								}
-							});
+							computers["2012"] = _.countBy(
+								so2012.map(item => {
+									var languages = item.languages.split(";");
+									for (var i = 0; i < languages.length; i++) {
+										return languages[i];
+									}
+								})
+							);
 
 							callback("", computers);
 						}
