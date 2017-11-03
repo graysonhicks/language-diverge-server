@@ -14,20 +14,20 @@ exports.computerList = function computerList(params, callback) {
 					item.languages = item.languages.split(";");
 					return item;
 				});
+				db
+					.collection("so2012")
+					.find()
+					.toArray(function(err, computers) {
+						if (err) {
+							console.log(err);
+						} else {
+							computers["2012"] = computers.map(item => {
+								item.languages = item.languages.split(";");
+								return item;
+							});
+						}
+					}); // end Computer.find
+				callback("", computers);
 			}
 		}); // end Computer.find
-	db
-		.collection("so2012")
-		.find()
-		.toArray(function(err, computers) {
-			if (err) {
-				console.log(err);
-			} else {
-				computers["2012"] = computers.map(item => {
-					item.languages = item.languages.split(";");
-					return item;
-				});
-			}
-		}); // end Computer.find
-	callback("", computers);
 }; // end exports.computerList
