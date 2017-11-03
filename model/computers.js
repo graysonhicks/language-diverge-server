@@ -11,8 +11,7 @@ exports.computerList = function computerList(params, callback) {
 				console.log(err);
 			} else {
 				computers["2011"] = computers.map(item => {
-					item.languages = item.languages.split(";");
-					return item;
+					return item.languages.split(";");
 				});
 				db
 					.collection("so2012")
@@ -22,8 +21,7 @@ exports.computerList = function computerList(params, callback) {
 							console.log(err);
 						} else {
 							computers["2012"] = computers.map(item => {
-								item.languages = item.languages.split(";");
-								return item;
+								return item.languages.split(";");
 							});
 							callback("", computers);
 						}
