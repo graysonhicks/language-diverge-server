@@ -6,24 +6,24 @@ exports.computerList = function computerList(params, callback) {
 	db
 		.collection("so2011")
 		.find()
-		.toArray(function(err, computers) {
+		.toArray(function(err, so2011) {
 			if (err) {
 				console.log(err);
 			} else {
-				computers["2011"] = computers.map(item => {
+				computers["2011"] = so2011.map(item => {
 					return item.languages.split(";");
 				});
 				db
 					.collection("so2012")
 					.find()
-					.toArray(function(err, computers) {
+					.toArray(function(err, so2012) {
 						if (err) {
 							console.log(err);
 						} else {
-							computers["2012"] = computers.map(item => {
+							computers["2012"] = so2012.map(item => {
 								return item.languages.split(";");
 							});
-							console.log(computers);
+
 							callback("", computers);
 						}
 					}); // end Computer.find
