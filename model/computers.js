@@ -1,4 +1,22 @@
+var computers = [
+	"2011": [],
+	"2012": []
+
+]
 exports.computerList = function computerList(params, callback) {
+	db
+		.collection("so2011")
+		.find()
+		.toArray(function(err, computers) {
+			if (err) {
+				console.log(err);
+			} else {
+				computers["2011"] = computers.map(item => {
+					item.languages = item.languages.split(";");
+					return item;
+				});
+			}
+		}); // end Computer.find
 	db
 		.collection("so2012")
 		.find()
@@ -6,11 +24,12 @@ exports.computerList = function computerList(params, callback) {
 			if (err) {
 				console.log(err);
 			} else {
-				computers = computers.map(item => {
+				computers["2012"] = computers.map(item => {
 					item.languages = item.languages.split(";");
 					return item;
 				});
-				callback("", computers);
+
 			}
 		}); // end Computer.find
+	callback("", computers);
 }; // end exports.computerList
