@@ -23,6 +23,7 @@ exports.computerList = function computerList(params, callback) {
 							computers["2012"] = computers.map(item => {
 								return item.languages.split(";");
 							});
+							console.log(computers);
 							callback("", computers);
 						}
 					}); // end Computer.find
