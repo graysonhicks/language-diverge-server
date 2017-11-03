@@ -1,3 +1,5 @@
+var _ = require("underscore");
+
 var computers = {
 	"2011": [],
 	"2012": []
@@ -11,7 +13,10 @@ exports.computerList = function computerList(params, callback) {
 				console.log(err);
 			} else {
 				computers["2011"] = so2011.map(item => {
-					return item.languages.split(";");
+					item.languages.split(";");
+					for (var i = 0; i < item.languages.length; i++) {
+						return item.languages[i];
+					}
 				});
 				db
 					.collection("so2012")
@@ -21,7 +26,10 @@ exports.computerList = function computerList(params, callback) {
 							console.log(err);
 						} else {
 							computers["2012"] = so2012.map(item => {
-								return item.languages.split(";");
+								item.languages.split(";");
+								for (var i = 0; i < item.languages.length; i++) {
+									return item.languages[i];
+								}
 							});
 
 							callback("", computers);
