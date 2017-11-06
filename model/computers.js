@@ -28,7 +28,8 @@ var computers = {
 	so2013: [],
 	so2014: [],
 	so2015: [],
-	so2016: []
+	so2016: [],
+	final: []
 };
 
 exports.computerList = function computerList(params, callback) {
@@ -73,9 +74,8 @@ exports.computerList = function computerList(params, callback) {
 
 							computers["so2012"] = _.map(so2012LanguageCountObj, (val, key) => {
 								return {
-									label: key,
-									backgroundColor: colors[Math.floor(Math.random() * colors.length)],
-									data: val
+									key: val,
+									year: "2012"
 								};
 							});
 
@@ -97,9 +97,8 @@ exports.computerList = function computerList(params, callback) {
 
 										computers["so2013"] = _.map(so2013LanguageCountObj, (val, key) => {
 											return {
-												label: key,
-												backgroundColor: colors[Math.floor(Math.random() * colors.length)],
-												data: val
+												key: val,
+												year: "2013"
 											};
 										});
 										db
@@ -120,9 +119,8 @@ exports.computerList = function computerList(params, callback) {
 
 													computers["so2014"] = _.map(so2014LanguageCountObj, (val, key) => {
 														return {
-															label: key,
-															backgroundColor: colors[Math.floor(Math.random() * colors.length)],
-															data: val
+															key: val,
+															year: "2014"
 														};
 													});
 													db
@@ -143,9 +141,8 @@ exports.computerList = function computerList(params, callback) {
 
 																computers["so2015"] = _.map(so2015LanguageCountObj, (val, key) => {
 																	return {
-																		label: key,
-																		backgroundColor: colors[Math.floor(Math.random() * colors.length)],
-																		data: val
+																		key: val,
+																		year: "2015"
 																	};
 																});
 																db
@@ -166,13 +163,21 @@ exports.computerList = function computerList(params, callback) {
 
 																			computers["so2016"] = _.map(so2016LanguageCountObj, (val, key) => {
 																				return {
-																					label: key,
-																					backgroundColor: colors[Math.floor(Math.random() * colors.length)],
-																					data: val
+																					key: val,
+																					year: "2016"
 																				};
 																			});
 
-																			callback("", computers);
+																			computers["final"] = _.union(
+																				computers["so2011"],
+																				computers["so2012"],
+																				computers["so2013"],
+																				computers["so2014"],
+																				computers["so2015"],
+																				computers["so2016"]
+																			);
+
+																			callback("", computers["final"]);
 																		}
 																	}); // end Computer.find
 															}
