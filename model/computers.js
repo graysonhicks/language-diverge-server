@@ -53,8 +53,7 @@ exports.computerList = function computerList(params, callback) {
 					var language = key;
 					return {
 						label: language,
-						language: val,
-						year: "2011"
+						data: val
 					};
 				});
 				db
@@ -77,8 +76,7 @@ exports.computerList = function computerList(params, callback) {
 								var language = key;
 								return {
 									label: language,
-									language: val,
-									year: "2012"
+									data: val
 								};
 							});
 
@@ -102,8 +100,7 @@ exports.computerList = function computerList(params, callback) {
 											var language = key;
 											return {
 												label: language,
-												language: val,
-												year: "2013"
+												data: val
 											};
 										});
 										db
@@ -126,8 +123,7 @@ exports.computerList = function computerList(params, callback) {
 														var language = key;
 														return {
 															label: language,
-															language: val,
-															year: "2014"
+															data: val
 														};
 													});
 													db
@@ -150,8 +146,7 @@ exports.computerList = function computerList(params, callback) {
 																	var language = key;
 																	return {
 																		label: language,
-																		language: val,
-																		year: "2015"
+																		data: val
 																	};
 																});
 																db
@@ -174,8 +169,7 @@ exports.computerList = function computerList(params, callback) {
 																				var language = key;
 																				return {
 																					label: language,
-																					language: val,
-																					year: "2016"
+																					data: val
 																				};
 																			});
 
@@ -188,7 +182,18 @@ exports.computerList = function computerList(params, callback) {
 																				computers["so2016"]
 																			);
 
-																			callback("", computers["final"]);
+																			var results = computers["final"].map((item, index) => {
+																				var existing = _.findWhere(results, { label: item.label });
+																				if (existing) {
+																					existing["data"].push(item.data);
+																				} else {
+																					item.data = [item.data];
+																					item.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+																					results.push(item);
+																				}
+																			});
+
+																			callback("", results);
 																		}
 																	}); // end Computer.find
 															}
