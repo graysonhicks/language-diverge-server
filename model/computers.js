@@ -181,8 +181,8 @@ exports.computerList = function computerList(params, callback) {
 																				computers["so2015"],
 																				computers["so2016"]
 																			);
-
-																			var results = computers["final"].map((item, index) => {
+																			var results = [];
+																			results = computers["final"].map((item, index) => {
 																				var existing = _.findWhere(results, { label: item.label });
 																				if (existing) {
 																					existing["data"].push(item.data);
