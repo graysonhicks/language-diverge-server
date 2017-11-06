@@ -39,16 +39,22 @@ exports.computerList = function computerList(params, callback) {
 			if (err) {
 				console.log(err);
 			} else {
-				computers["final"].push(
-					_.countBy(
-						so2011.map(item => {
-							var languages = item.languages.split(";");
-							for (var i = 0; i < languages.length; i++) {
-								return languages[i];
-							}
-						})
-					)
+				var so2011LanguageCountObj = _.countBy(
+					so2011.map(item => {
+						var languages = item.languages.split(";");
+						for (var i = 0; i < languages.length; i++) {
+							return languages[i];
+						}
+					})
 				);
+
+				computers["so2011"] = _.map(so2011LanguageCountObj, (val, key) => {
+					return {
+						label: key,
+						backgroundColor: colors[Math.floor(Math.random() * colors.length)],
+						data: val
+					};
+				});
 				db
 					.collection("so2012")
 					.find()
