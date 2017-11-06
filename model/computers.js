@@ -8,7 +8,8 @@ var computers = {
 	so2013: [],
 	so2014: [],
 	so2015: [],
-	so2016: []
+	so2016: [],
+	final: []
 };
 
 exports.computerList = function computerList(params, callback) {
@@ -19,13 +20,15 @@ exports.computerList = function computerList(params, callback) {
 			if (err) {
 				console.log(err);
 			} else {
-				computers["so2011"] = _.countBy(
-					so2011.map(item => {
-						var languages = item.languages.split(";");
-						for (var i = 0; i < languages.length; i++) {
-							return languages[i];
-						}
-					})
+				computers["final"].push(
+					_.countBy(
+						so2011.map(item => {
+							var languages = item.languages.split(";");
+							for (var i = 0; i < languages.length; i++) {
+								return languages[i];
+							}
+						})
+					)
 				);
 				db
 					.collection("so2012")
@@ -34,13 +37,15 @@ exports.computerList = function computerList(params, callback) {
 						if (err) {
 							console.log(err);
 						} else {
-							computers["so2012"] = _.countBy(
-								so2012.map(item => {
-									var languages = item.languages.split(";");
-									for (var i = 0; i < languages.length; i++) {
-										return languages[i];
-									}
-								})
+							computers["final"].push(
+								_.countBy(
+									so2012.map(item => {
+										var languages = item.languages.split(";");
+										for (var i = 0; i < languages.length; i++) {
+											return languages[i];
+										}
+									})
+								)
 							);
 							db
 								.collection("so2013")
@@ -49,13 +54,15 @@ exports.computerList = function computerList(params, callback) {
 									if (err) {
 										console.log(err);
 									} else {
-										computers["so2013"] = _.countBy(
-											so2013.map(item => {
-												var languages = item.languages.split(";");
-												for (var i = 0; i < languages.length; i++) {
-													return languages[i];
-												}
-											})
+										computers["final"].push(
+											_.countBy(
+												so2013.map(item => {
+													var languages = item.languages.split(";");
+													for (var i = 0; i < languages.length; i++) {
+														return languages[i];
+													}
+												})
+											)
 										);
 										db
 											.collection("so2014")
@@ -64,13 +71,15 @@ exports.computerList = function computerList(params, callback) {
 												if (err) {
 													console.log(err);
 												} else {
-													computers["so2014"] = _.countBy(
-														so2014.map(item => {
-															var languages = item.languages.split(";");
-															for (var i = 0; i < languages.length; i++) {
-																return languages[i];
-															}
-														})
+													computers["final"].push(
+														_.countBy(
+															so2014.map(item => {
+																var languages = item.languages.split(";");
+																for (var i = 0; i < languages.length; i++) {
+																	return languages[i];
+																}
+															})
+														)
 													);
 													db
 														.collection("so2015")
@@ -79,13 +88,15 @@ exports.computerList = function computerList(params, callback) {
 															if (err) {
 																console.log(err);
 															} else {
-																computers["so2015"] = _.countBy(
-																	so2015.map(item => {
-																		var languages = item.languages.split(";");
-																		for (var i = 0; i < languages.length; i++) {
-																			return languages[i];
-																		}
-																	})
+																computers["final"].push(
+																	_.countBy(
+																		so2015.map(item => {
+																			var languages = item.languages.split(";");
+																			for (var i = 0; i < languages.length; i++) {
+																				return languages[i];
+																			}
+																		})
+																	)
 																);
 																db
 																	.collection("so2016")
@@ -94,16 +105,18 @@ exports.computerList = function computerList(params, callback) {
 																		if (err) {
 																			console.log(err);
 																		} else {
-																			computers["so2016"] = _.countBy(
-																				so2016.map(item => {
-																					var languages = item.languages.split(";");
-																					for (var i = 0; i < languages.length; i++) {
-																						return languages[i];
-																					}
-																				})
+																			computers["final"].push(
+																				_.countBy(
+																					so2016.map(item => {
+																						var languages = item.languages.split(";");
+																						for (var i = 0; i < languages.length; i++) {
+																							return languages[i];
+																						}
+																					})
+																				)
 																			);
 
-																			callback("", computers);
+																			callback("", _.flatten(computers["final"]));
 																		}
 																	}); // end Computer.find
 															}
