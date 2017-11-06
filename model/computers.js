@@ -53,7 +53,8 @@ exports.computerList = function computerList(params, callback) {
 					var language = key;
 					return {
 						label: language,
-						data: val
+						data: val,
+						yearIndex: 0
 					};
 				});
 				db
@@ -76,7 +77,8 @@ exports.computerList = function computerList(params, callback) {
 								var language = key;
 								return {
 									label: language,
-									data: val
+									data: val,
+									yearIndex: 1
 								};
 							});
 
@@ -100,7 +102,8 @@ exports.computerList = function computerList(params, callback) {
 											var language = key;
 											return {
 												label: language,
-												data: val
+												data: val,
+												yearIndex: 2
 											};
 										});
 										db
@@ -123,7 +126,8 @@ exports.computerList = function computerList(params, callback) {
 														var language = key;
 														return {
 															label: language,
-															data: val
+															data: val,
+															yearIndex: 3
 														};
 													});
 													db
@@ -146,7 +150,8 @@ exports.computerList = function computerList(params, callback) {
 																	var language = key;
 																	return {
 																		label: language,
-																		data: val
+																		data: val,
+																		yearIndex: 4
 																	};
 																});
 																db
@@ -169,7 +174,8 @@ exports.computerList = function computerList(params, callback) {
 																				var language = key;
 																				return {
 																					label: language,
-																					data: val
+																					data: val,
+																					yearIndex: 5
 																				};
 																			});
 
@@ -186,13 +192,23 @@ exports.computerList = function computerList(params, callback) {
 																			for (var i = 0; i < computers["final"].length; i++) {
 																				var item = computers["final"][i];
 																				var existing = _.findWhere(results, { label: item.label });
+																				var objIndex = results.findIndex(
+																					obj => obj.label.toLowerCase() == item.label.toLowerCase()
+																				);
 
-																				if (existing) {
-																					existing["data"].push(item.data);
+																				if (objIndex < 0) {
+																					var newItem = {};
+																					newItem.data = [0, 0, 0, 0, 0, 0];
+																					for (var i = 0; i < newItem.data.length; i++) {
+																						if (item.yearIndex == i) {
+																							newItem.data[yearIndex] = item.data;
+																						}
+																					}
+
+																					newItem.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+																					results.push(newItem);
 																				} else {
-																					item.data = [item.data];
-																					item.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-																					results.push(item);
+																					results[objIndex]["data"][yearIndex] = item.data;
 																				}
 																			}
 
