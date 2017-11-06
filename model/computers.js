@@ -183,7 +183,9 @@ exports.computerList = function computerList(params, callback) {
 																			);
 																			var results = [];
 																			results = computers["final"].map((item, index) => {
+																				console.log(item, "item");
 																				var existing = _.findWhere(results, { label: item.label });
+																				console.log(existing, "existing");
 																				if (existing) {
 																					existing["data"].push(item.data);
 																				} else {
