@@ -50,10 +50,11 @@ exports.computerList = function computerList(params, callback) {
 				);
 
 				computers["so2011"] = _.map(so2011LanguageCountObj, (val, key) => {
+					var language = key;
 					return {
-						label: key,
-						backgroundColor: colors[Math.floor(Math.random() * colors.length)],
-						data: val
+						label: so2011LanguageCountObj[key],
+						language: val,
+						year: "2011"
 					};
 				});
 				db
@@ -73,8 +74,10 @@ exports.computerList = function computerList(params, callback) {
 							);
 
 							computers["so2012"] = _.map(so2012LanguageCountObj, (val, key) => {
+								var language = key;
 								return {
-									key: val,
+									label: so2012LanguageCountObj[key],
+									language: val,
 									year: "2012"
 								};
 							});
@@ -96,8 +99,10 @@ exports.computerList = function computerList(params, callback) {
 										);
 
 										computers["so2013"] = _.map(so2013LanguageCountObj, (val, key) => {
+											var language = key;
 											return {
-												key: val,
+												label: so2013LanguageCountObj[key],
+												language: val,
 												year: "2013"
 											};
 										});
@@ -118,8 +123,10 @@ exports.computerList = function computerList(params, callback) {
 													);
 
 													computers["so2014"] = _.map(so2014LanguageCountObj, (val, key) => {
+														var language = key;
 														return {
-															key: val,
+															label: so2014LanguageCountObj[key],
+															language: val,
 															year: "2014"
 														};
 													});
@@ -140,8 +147,10 @@ exports.computerList = function computerList(params, callback) {
 																);
 
 																computers["so2015"] = _.map(so2015LanguageCountObj, (val, key) => {
+																	var language = key;
 																	return {
-																		key: val,
+																		label: so2015LanguageCountObj[key],
+																		language: val,
 																		year: "2015"
 																	};
 																});
@@ -162,8 +171,10 @@ exports.computerList = function computerList(params, callback) {
 																			);
 
 																			computers["so2016"] = _.map(so2016LanguageCountObj, (val, key) => {
+																				var language = key;
 																				return {
-																					key: val,
+																					label: so2016LanguageCountObj[key],
+																					language: val,
 																					year: "2016"
 																				};
 																			});
