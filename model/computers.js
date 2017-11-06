@@ -201,7 +201,7 @@ exports.computerList = function computerList(params, callback) {
 																					newItem.data = [0, 0, 0, 0, 0, 0];
 																					for (var i = 0; i < newItem.data.length; i++) {
 																						if (item.yearIndex == i) {
-																							newItem.data[yearIndex] = item.data;
+																							newItem.data[item.yearIndex] = item.data;
 																						}
 																					}
 
