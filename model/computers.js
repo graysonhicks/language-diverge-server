@@ -204,7 +204,7 @@ exports.computerList = function computerList(params, callback) {
 																							newItem.data[item.yearIndex] = item.data;
 																						}
 																					}
-
+																					newItem.label = item.label;
 																					newItem.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
 																					results.push(newItem);
 																				} else {
