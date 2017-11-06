@@ -182,10 +182,11 @@ exports.computerList = function computerList(params, callback) {
 																				computers["so2016"]
 																			);
 																			var results = [];
-																			results = computers["final"].map((item, index) => {
-																				console.log(item, "item");
+
+																			for (var i = 0; i < computers["final"].length; i++) {
+																				var item = computers["final"][i];
 																				var existing = _.findWhere(results, { label: item.label });
-																				console.log(existing, "existing");
+
 																				if (existing) {
 																					existing["data"].push(item.data);
 																				} else {
@@ -193,7 +194,7 @@ exports.computerList = function computerList(params, callback) {
 																					item.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
 																					results.push(item);
 																				}
-																			});
+																			}
 
 																			callback("", results);
 																		}
