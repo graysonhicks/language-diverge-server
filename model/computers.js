@@ -53,7 +53,7 @@ var sumOfCountObj = function(countObj) {
 	);
 };
 
-var addYearDataToFinalArray = function(yearKey, countObj, yearIndex) {
+var addYearDataToFinalArray = function(yearKey, countObj, yearIndex, sum) {
 	computers[yearKey] = _.map(countObj, (val, key) => {
 		var language = key;
 
@@ -77,7 +77,7 @@ exports.computerList = function computerList(params, callback) {
 
 				var sum = sumOfCountObj(so2011LanguageCountObj);
 
-				addYearDataToFinalArray("so2011", so2011LanguageCountObj, 0);
+				addYearDataToFinalArray("so2011", so2011LanguageCountObj, 0, sum);
 				db
 					.collection("so2012")
 					.find()
@@ -89,7 +89,7 @@ exports.computerList = function computerList(params, callback) {
 
 							var sum = sumOfCountObj(so2012LanguageCountObj);
 
-							addYearDataToFinalArray("so2012", so2012LanguageCountObj, 1);
+							addYearDataToFinalArray("so2012", so2012LanguageCountObj, 1, sum);
 
 							db
 								.collection("so2013")
@@ -102,7 +102,7 @@ exports.computerList = function computerList(params, callback) {
 
 										var sum = sumOfCountObj(so2013LanguageCountObj);
 
-										addYearDataToFinalArray("so2013", so2013LanguageCountObj, 2);
+										addYearDataToFinalArray("so2013", so2013LanguageCountObj, 2, sum);
 
 										db
 											.collection("so2014")
@@ -115,7 +115,7 @@ exports.computerList = function computerList(params, callback) {
 
 													var sum = sumOfCountObj(so2014LanguageCountObj);
 
-													addYearDataToFinalArray("so2014", so2014LanguageCountObj, 3);
+													addYearDataToFinalArray("so2014", so2014LanguageCountObj, 3, sum);
 
 													db
 														.collection("so2015")
@@ -128,7 +128,7 @@ exports.computerList = function computerList(params, callback) {
 
 																var sum = sumOfCountObj(so2015LanguageCountObj);
 
-																addYearDataToFinalArray("so2015", so2015LanguageCountObj, 4);
+																addYearDataToFinalArray("so2015", so2015LanguageCountObj, 4, sum);
 
 																db
 																	.collection("so2016")
@@ -141,7 +141,7 @@ exports.computerList = function computerList(params, callback) {
 
 																			var sum = sumOfCountObj(so2016LanguageCountObj);
 
-																			addYearDataToFinalArray("so2016", so2016LanguageCountObj, 5);
+																			addYearDataToFinalArray("so2016", so2016LanguageCountObj, 5, sum);
 
 																			// flatten all arrays in to one
 																			computers["final"] = _.union(
