@@ -49,6 +49,8 @@ exports.computerList = function computerList(params, callback) {
 					})
 				);
 
+				console.log(so2011LanguageCountObj);
+
 				var sum = _.reduce(
 					so2011LanguageCountObj,
 					function(memo, num) {
@@ -56,6 +58,8 @@ exports.computerList = function computerList(params, callback) {
 					},
 					0
 				);
+
+				console.log(sum);
 
 				computers["so2011"] = _.map(so2011LanguageCountObj, (val, key) => {
 					var language = key;
