@@ -105,14 +105,7 @@ exports.computerList = function computerList(params, callback) {
 									if (err) {
 										console.log(err);
 									} else {
-										var so2013LanguageCountObj = _.countBy(
-											so2013.map(item => {
-												var languages = item.languages.split(";");
-												for (var i = 0; i < languages.length; i++) {
-													return languages[i];
-												}
-											})
-										);
+										var so2013LanguageCountObj = buildCountObject(so2013);
 
 										var sum = _.reduce(
 											so2013LanguageCountObj,
@@ -137,14 +130,7 @@ exports.computerList = function computerList(params, callback) {
 												if (err) {
 													console.log(err);
 												} else {
-													var so2014LanguageCountObj = _.countBy(
-														so2014.map(item => {
-															var languages = item.languages.split(";");
-															for (var i = 0; i < languages.length; i++) {
-																return languages[i];
-															}
-														})
-													);
+													var so2014LanguageCountObj = buildCountObject(so2014);
 
 													var sum = _.reduce(
 														so2014LanguageCountObj,
@@ -169,14 +155,7 @@ exports.computerList = function computerList(params, callback) {
 															if (err) {
 																console.log(err);
 															} else {
-																var so2015LanguageCountObj = _.countBy(
-																	so2015.map(item => {
-																		var languages = item.languages.split(";");
-																		for (var i = 0; i < languages.length; i++) {
-																			return languages[i];
-																		}
-																	})
-																);
+																var so2015LanguageCountObj = buildCountObject(so2015);
 
 																var sum = _.reduce(
 																	so2015LanguageCountObj,
@@ -201,14 +180,7 @@ exports.computerList = function computerList(params, callback) {
 																		if (err) {
 																			console.log(err);
 																		} else {
-																			var so2016LanguageCountObj = _.countBy(
-																				so2016.map(item => {
-																					var languages = item.languages.split(";");
-																					for (var i = 0; i < languages.length; i++) {
-																						return languages[i];
-																					}
-																				})
-																			);
+																			var so2016LanguageCountObj = buildCountObject(so2016);
 
 																			var sum = _.reduce(
 																				so2016LanguageCountObj,
