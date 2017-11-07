@@ -248,7 +248,7 @@ exports.computerList = function computerList(params, callback) {
 																				var item = computers["final"][i];
 
 																				var objIndex = results.findIndex(
-																					obj => obj.label.toLowerCase() == item.label.toLowerCase()
+																					obj => obj.label.toLowerCase() === item.label.toLowerCase()
 																				);
 
 																				if (objIndex < 0) {
