@@ -49,11 +49,19 @@ exports.computerList = function computerList(params, callback) {
 					})
 				);
 
+				var sum = _.reduce(
+					so2011LanguageCountObj,
+					function(memo, num) {
+						return memo + num;
+					},
+					0
+				);
+
 				computers["so2011"] = _.map(so2011LanguageCountObj, (val, key) => {
 					var language = key;
 					return {
 						label: language,
-						data: val,
+						data: val / sum,
 						yearIndex: 0
 					};
 				});
@@ -73,11 +81,19 @@ exports.computerList = function computerList(params, callback) {
 								})
 							);
 
+							var sum = _.reduce(
+								so2012LanguageCountObj,
+								function(memo, num) {
+									return memo + num;
+								},
+								0
+							);
+
 							computers["so2012"] = _.map(so2012LanguageCountObj, (val, key) => {
 								var language = key;
 								return {
 									label: language,
-									data: val,
+									data: val / sum,
 									yearIndex: 1
 								};
 							});
@@ -98,11 +114,19 @@ exports.computerList = function computerList(params, callback) {
 											})
 										);
 
+										var sum = _.reduce(
+											so2013LanguageCountObj,
+											function(memo, num) {
+												return memo + num;
+											},
+											0
+										);
+
 										computers["so2013"] = _.map(so2013LanguageCountObj, (val, key) => {
 											var language = key;
 											return {
 												label: language,
-												data: val,
+												data: val / sum,
 												yearIndex: 2
 											};
 										});
@@ -122,11 +146,19 @@ exports.computerList = function computerList(params, callback) {
 														})
 													);
 
+													var sum = _.reduce(
+														so2014LanguageCountObj,
+														function(memo, num) {
+															return memo + num;
+														},
+														0
+													);
+
 													computers["so2014"] = _.map(so2014LanguageCountObj, (val, key) => {
 														var language = key;
 														return {
 															label: language,
-															data: val,
+															data: val / sum,
 															yearIndex: 3
 														};
 													});
@@ -146,11 +178,19 @@ exports.computerList = function computerList(params, callback) {
 																	})
 																);
 
+																var sum = _.reduce(
+																	so2015LanguageCountObj,
+																	function(memo, num) {
+																		return memo + num;
+																	},
+																	0
+																);
+
 																computers["so2015"] = _.map(so2015LanguageCountObj, (val, key) => {
 																	var language = key;
 																	return {
 																		label: language,
-																		data: val,
+																		data: val / sum,
 																		yearIndex: 4
 																	};
 																});
@@ -170,11 +210,19 @@ exports.computerList = function computerList(params, callback) {
 																				})
 																			);
 
+																			var sum = _.reduce(
+																				so2016LanguageCountObj,
+																				function(memo, num) {
+																					return memo + num;
+																				},
+																				0
+																			);
+
 																			computers["so2016"] = _.map(so2016LanguageCountObj, (val, key) => {
 																				var language = key;
 																				return {
 																					label: language,
-																					data: val,
+																					data: val / sum,
 																					yearIndex: 5
 																				};
 																			});
