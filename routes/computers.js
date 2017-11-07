@@ -2,7 +2,6 @@ var computerData = require("../model/computers");
 
 exports.list = function(req, res, mjs) {
 	computerData.computerList(req.params, function(err, computersList) {
-		// res.send({ data: computersList });
 		mjs.get("computer", function(err, v) {
 			if (v) {
 				var json = JSON.parse(v.toString());
