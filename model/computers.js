@@ -33,7 +33,7 @@ var computers = {
 };
 
 var buildCountObject = function(yearData) {
-	var languageCountObj = _.countBy(
+	return _.countBy(
 		yearData.map(item => {
 			var languages = item.languages.split(";");
 			for (var i = 0; i < languages.length; i++) {
@@ -41,8 +41,16 @@ var buildCountObject = function(yearData) {
 			}
 		})
 	);
+};
 
-	return languageCountObj;
+var sumOfCountObj = function(countObj) {
+	return _.reduce(
+		countObj,
+		function(memo, num) {
+			return memo + num;
+		},
+		0
+	);
 };
 
 exports.computerList = function computerList(params, callback) {
@@ -55,13 +63,7 @@ exports.computerList = function computerList(params, callback) {
 			} else {
 				var so2011LanguageCountObj = buildCountObject(so2011);
 
-				var sum = _.reduce(
-					so2011LanguageCountObj,
-					function(memo, num) {
-						return memo + num;
-					},
-					0
-				);
+				var sum = sumOfCountObj(so2011LanguageCountObj);
 
 				computers["so2011"] = _.map(so2011LanguageCountObj, (val, key) => {
 					var language = key;
@@ -81,13 +83,7 @@ exports.computerList = function computerList(params, callback) {
 						} else {
 							var so2012LanguageCountObj = buildCountObject(so2012);
 
-							var sum = _.reduce(
-								so2012LanguageCountObj,
-								function(memo, num) {
-									return memo + num;
-								},
-								0
-							);
+							var sum = sumOfCountObj(so2012LanguageCountObj);
 
 							computers["so2012"] = _.map(so2012LanguageCountObj, (val, key) => {
 								var language = key;
@@ -107,13 +103,7 @@ exports.computerList = function computerList(params, callback) {
 									} else {
 										var so2013LanguageCountObj = buildCountObject(so2013);
 
-										var sum = _.reduce(
-											so2013LanguageCountObj,
-											function(memo, num) {
-												return memo + num;
-											},
-											0
-										);
+										var sum = sumOfCountObj(so2013LanguageCountObj);
 
 										computers["so2013"] = _.map(so2013LanguageCountObj, (val, key) => {
 											var language = key;
@@ -132,13 +122,7 @@ exports.computerList = function computerList(params, callback) {
 												} else {
 													var so2014LanguageCountObj = buildCountObject(so2014);
 
-													var sum = _.reduce(
-														so2014LanguageCountObj,
-														function(memo, num) {
-															return memo + num;
-														},
-														0
-													);
+													var sum = sumOfCountObj(so2014LanguageCountObj);
 
 													computers["so2014"] = _.map(so2014LanguageCountObj, (val, key) => {
 														var language = key;
@@ -157,13 +141,7 @@ exports.computerList = function computerList(params, callback) {
 															} else {
 																var so2015LanguageCountObj = buildCountObject(so2015);
 
-																var sum = _.reduce(
-																	so2015LanguageCountObj,
-																	function(memo, num) {
-																		return memo + num;
-																	},
-																	0
-																);
+																var sum = sumOfCountObj(so2015LanguageCountObj);
 
 																computers["so2015"] = _.map(so2015LanguageCountObj, (val, key) => {
 																	var language = key;
@@ -182,13 +160,7 @@ exports.computerList = function computerList(params, callback) {
 																		} else {
 																			var so2016LanguageCountObj = buildCountObject(so2016);
 
-																			var sum = _.reduce(
-																				so2016LanguageCountObj,
-																				function(memo, num) {
-																					return memo + num;
-																				},
-																				0
-																			);
+																			var sum = sumOfCountObj(so2016LanguageCountObj);
 
 																			computers["so2016"] = _.map(so2016LanguageCountObj, (val, key) => {
 																				var language = key;
