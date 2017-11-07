@@ -53,6 +53,18 @@ var sumOfCountObj = function(countObj) {
 	);
 };
 
+var addYearDataToFinalArray = function(yearKey, countObj, yearIndex) {
+	computers[yearKey] = _.map(countObj, (val, key) => {
+		var language = key;
+
+		return {
+			label: language,
+			data: val / sum,
+			yearIndex: yearIndex
+		};
+	});
+};
+
 exports.computerList = function computerList(params, callback) {
 	db
 		.collection("so2011")
@@ -65,15 +77,7 @@ exports.computerList = function computerList(params, callback) {
 
 				var sum = sumOfCountObj(so2011LanguageCountObj);
 
-				computers["so2011"] = _.map(so2011LanguageCountObj, (val, key) => {
-					var language = key;
-
-					return {
-						label: language,
-						data: val / sum,
-						yearIndex: 0
-					};
-				});
+				addYearDataToFinalArray("so2011", so2011LanguageCountObj, 0);
 				db
 					.collection("so2012")
 					.find()
