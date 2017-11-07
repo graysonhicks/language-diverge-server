@@ -63,6 +63,7 @@ exports.computerList = function computerList(params, callback) {
 
 				computers["so2011"] = _.map(so2011LanguageCountObj, (val, key) => {
 					var language = key;
+					console.log(key, val / sum);
 					return {
 						label: language,
 						data: val / sum,
@@ -231,6 +232,7 @@ exports.computerList = function computerList(params, callback) {
 																				};
 																			});
 
+																			// flatten all arrays in to one
 																			computers["final"] = _.union(
 																				computers["so2011"],
 																				computers["so2012"],
@@ -241,9 +243,10 @@ exports.computerList = function computerList(params, callback) {
 																			);
 																			var results = [];
 
+																			// loop over flattened array
 																			for (var i = 0; i < computers["final"].length; i++) {
 																				var item = computers["final"][i];
-																				var existing = _.findWhere(results, { label: item.label });
+
 																				var objIndex = results.findIndex(
 																					obj => obj.label.toLowerCase() == item.label.toLowerCase()
 																				);
