@@ -34,6 +34,7 @@ exports.extinctList = function extinctList(params, callback) {
 							var years = [];
 							for (var i = 0; i < uniqueYears.length; i++) {
 								if (item.year == uniqueYears[i]) {
+									console.log(item, uniqueYears[i]);
 									years.push(1);
 								} else {
 									years.push(0);
