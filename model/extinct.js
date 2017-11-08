@@ -30,6 +30,7 @@ exports.extinctList = function extinctList(params, callback) {
 					if (err) {
 						console.log(err);
 					} else {
+						console.log(uniqueYears);
 						languages = languages.map(item => {
 							var years = [];
 							for (var i = 0; i < uniqueYears.length; i++) {
