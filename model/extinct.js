@@ -47,7 +47,7 @@ exports.extinctList = function extinctList(params, callback) {
 								longitude: item.longitude
 							};
 						});
-						callback("", { languages: languages, uniqueYears: uniqueYears });
+						callback("", { languages: languages, uniqueYears: uniqueYears.reverse() });
 					}
 				});
 			}
