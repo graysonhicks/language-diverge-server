@@ -30,6 +30,7 @@ exports.extinctList = function extinctList(params, callback) {
 					if (err) {
 						console.log(err);
 					} else {
+						uniqueYears = uniqueYears.reverse();
 						languages = languages.map(item => {
 							var years = [];
 							for (var i = 0; i < uniqueYears.length; i++) {
@@ -49,7 +50,7 @@ exports.extinctList = function extinctList(params, callback) {
 								year: item.year
 							};
 						});
-						callback("", { languages: languages, uniqueYears: uniqueYears.reverse() });
+						callback("", { languages: languages, uniqueYears: uniqueYears });
 					}
 				});
 			}
