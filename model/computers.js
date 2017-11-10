@@ -143,51 +143,55 @@ exports.computerList = function computerList(params, callback) {
 
 																			addYearDataToFinalArray("so2016", so2016LanguageCountObj, 5, sum);
 
+																			callback("", computers["so2011"]);
+
 																			// flatten all arrays in to one
-																			computers["final"] = _.union(
-																				computers["so2011"],
-																				computers["so2012"],
-																				computers["so2013"],
-																				computers["so2014"],
-																				computers["so2015"],
-																				computers["so2016"]
-																			);
-
-																			var results = [];
-
-																			// loop over flattened array
-																			for (var i = 0; i < computers["final"].length; i++) {
-																				// alias item
-																				var item = computers["final"][i];
-
-																				// see if language already exists in results array
-																				var objIndex = results.findIndex(
-																					obj => obj.label.toLowerCase() === item.label.toLowerCase()
-																				);
-
-																				// if it does not, build a new item with an empty data set for each year
-																				if (objIndex < 0) {
-																					var newItem = {};
-																					newItem.data = [0, 0, 0, 0, 0, 0];
-																					// then match the percentage value with the year in the data array that it should replace
-																					for (var i = 0; i < newItem.data.length; i++) {
-																						if (item.yearIndex == i) {
-																							newItem.data[item.yearIndex] = item.data;
-																						}
-																					}
-																					// set language name
-																					newItem.label = item.label;
-																					// set background color
-																					newItem.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-																					// push new item to final results array
-																					results.push(newItem);
-																				} else {
-																					// if it does exist already, just replace the 0 in data array with new data value for the correct year
-																					results[objIndex]["data"][item.yearIndex] = item.data;
-																				}
-																			}
-
-																			callback("", results);
+																			// computers["final"] = _.union(
+																			// 	computers["so2011"],
+																			// 	computers["so2012"],
+																			// 	computers["so2013"],
+																			// 	computers["so2014"],
+																			// 	computers["so2015"],
+																			// 	computers["so2016"]
+																			// );
+																			//
+																			// var results = [];
+																			//
+																			//
+																			//
+																			// // loop over flattened array
+																			// for (var i = 0; i < computers["final"].length; i++) {
+																			// 	// alias item
+																			// 	var item = computers["final"][i];
+																			//
+																			// 	// see if language already exists in results array
+																			// 	var objIndex = results.findIndex(
+																			// 		obj => obj.label.toLowerCase() === item.label.toLowerCase()
+																			// 	);
+																			//
+																			// 	// if it does not, build a new item with an empty data set for each year
+																			// 	if (objIndex < 0) {
+																			// 		var newItem = {};
+																			// 		newItem.data = [0, 0, 0, 0, 0, 0];
+																			// 		// then match the percentage value with the year in the data array that it should replace
+																			// 		for (var i = 0; i < newItem.data.length; i++) {
+																			// 			if (item.yearIndex == i) {
+																			// 				newItem.data[item.yearIndex] = item.data;
+																			// 			}
+																			// 		}
+																			// 		// set language name
+																			// 		newItem.label = item.label;
+																			// 		// set background color
+																			// 		newItem.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+																			// 		// push new item to final results array
+																			// 		results.push(newItem);
+																			// 	} else {
+																			// 		// if it does exist already, just replace the 0 in data array with new data value for the correct year
+																			// 		results[objIndex]["data"][item.yearIndex] = item.data;
+																			// 	}
+																			// }
+																			//
+																			// callback("", results);
 																		}
 																	}); // end 2016
 															}
