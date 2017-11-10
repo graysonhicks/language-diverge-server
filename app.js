@@ -23,7 +23,9 @@ app.get("/endangered", function(req, res) {
 	endangered.list(req, res, mjs);
 });
 
-app.get("/extinct", extinct.list);
+app.get("/extinct", function(req, res) {
+	extinct.list(req, res, mjs);
+});
 
 app.get("/historic", function(req, res) {
 	historic.list(req, res, mjs);
