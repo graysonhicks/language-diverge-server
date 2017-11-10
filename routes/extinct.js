@@ -5,7 +5,7 @@ exports.list = function(req, res, mjs) {
 		mjs.get("extinct", function(err, v) {
 			if (v) {
 				var json = JSON.parse(v.toString());
-
+				console.log(json, "old");
 				res.json({ data: json });
 			} else {
 				var newV = extinctList;
@@ -20,7 +20,7 @@ exports.list = function(req, res, mjs) {
 						});
 					} else {
 						var json = JSON.parse(val.toString());
-
+						console.log(json, "new");
 						res.send({ data: json });
 					}
 				});

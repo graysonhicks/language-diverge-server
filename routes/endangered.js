@@ -5,6 +5,7 @@ exports.list = function(req, res, mjs) {
 		mjs.get("endangered", function(err, v) {
 			if (v) {
 				var json = JSON.parse(v.toString());
+				console.log(json, "old");
 				res.send({ data: json });
 			} else {
 				var newV = endangeredList;
@@ -18,6 +19,7 @@ exports.list = function(req, res, mjs) {
 						});
 					} else {
 						var json = JSON.parse(val.toString());
+						console.log(json, "new");
 						res.send({ data: json });
 					}
 				});
