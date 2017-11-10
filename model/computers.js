@@ -187,7 +187,7 @@ exports.computerList = function computerList(params, callback) {
 																				}
 																			}
 
-																			callback("", computers["so2011"]);
+																			callback("", results);
 																		}
 																	}); // end 2016
 															}
