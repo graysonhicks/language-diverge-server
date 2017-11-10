@@ -19,7 +19,7 @@ exports.list = function(req, res, mjs) {
 						});
 					} else {
 						var json = JSON.parse(val.toString());
-						console.log(newVal, "newVal");
+						console.log(newV, "newVal");
 						console.log(val, "val");
 						console.log(json, "new");
 
