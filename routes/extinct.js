@@ -11,7 +11,7 @@ exports.list = function(req, res, mjs) {
 				var newV = extinctList;
 				newV = JSON.stringify(newV);
 
-				mjs.set("extinct", newV, function(err, val) {
+				mjs.set("extinct", newV, { expires: 86400 }, function(err, val) {
 					if (err) {
 						console.log("Error setting key: " + err);
 						res.render("error", {

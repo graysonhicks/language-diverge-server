@@ -9,7 +9,7 @@ exports.list = function(req, res, mjs) {
 			} else {
 				var newV = endangeredList;
 				newV = JSON.stringify(newV);
-				mjs.set("endangered", newV, function(err, val) {
+				mjs.set("endangered", newV, { expires: 86400 }, function(err, val) {
 					if (err) {
 						console.log("Error setting key: " + err);
 						res.render("error", {

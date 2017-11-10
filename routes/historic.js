@@ -9,7 +9,7 @@ exports.list = function(req, res, mjs) {
 			} else {
 				var newV = historicList;
 				newV = JSON.stringify(newV);
-				mjs.set("historic", newV, function(err, val) {
+				mjs.set("historic", newV, { expires: 86400 }, function(err, val) {
 					if (err) {
 						console.log("Error setting key: " + err);
 						res.render("error", {

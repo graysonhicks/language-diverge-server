@@ -5,12 +5,12 @@ exports.list = function(req, res, mjs) {
 		mjs.get("computer", function(err, v) {
 			if (v) {
 				var json = JSON.parse(v.toString());
-				console.log(json);
+				console.log(json, "old");
 				res.send({ data: json });
 			} else {
 				var newV = computersList;
 				newV = JSON.stringify(newV);
-				mjs.set("computer", newV, function(err, val) {
+				mjs.set("computer", newV, { expires: 86400 }, function(err, val) {
 					if (err) {
 						console.log("Error setting key: " + err);
 						res.render("error", {
@@ -19,6 +19,8 @@ exports.list = function(req, res, mjs) {
 						});
 					} else {
 						var json = JSON.parse(val.toString());
+						console.log(json, "new");
+
 						res.send({ data: json });
 					}
 				});
