@@ -18,7 +18,7 @@ exports.list = function(req, res, mjs) {
 							error: err
 						});
 					} else {
-						var json = JSON.parse(val.toString());
+						var json = JSON.parse(newV.toString());
 						console.log(newV, "newVal");
 						console.log(val, "val");
 						console.log(json, "new");
