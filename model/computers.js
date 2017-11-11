@@ -172,8 +172,8 @@ exports.computerList = function computerList(params, callback) {
 																					var newItem = {};
 																					newItem.data = [0, 0, 0, 0, 0, 0];
 																					// then match the percentage value with the year in the data array that it should replace
-																					for (var i = 0; i < newItem.data.length; i++) {
-																						if (item.yearIndex == i) {
+																					for (var j = 0; j < newItem.data.length; j++) {
+																						if (item.yearIndex === j) {
 																							newItem.data[item.yearIndex] = item.data;
 																						}
 																					}
