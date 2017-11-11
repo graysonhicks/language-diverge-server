@@ -159,11 +159,17 @@ exports.computerList = function computerList(params, callback) {
 																			for (var i = 0; i < computers["final"].length; i++) {
 																				// alias item
 																				var item = computers["final"][i];
-
+																				if(item.label.toLowerCase() == 'javascript' && item.yearIndex === 0){
+																					console.log(item);
+																				}
 																				// see if language already exists in results array
 																				var objIndex = results.findIndex(
 																					obj => obj.label.toLowerCase() === item.label.toLowerCase()
 																				);
+
+																					if(item.label.toLowerCase() == 'javascript' && item.yearIndex === 0){
+																						console.log(objIndex);
+																					}
 
 																				// if it does not, build a new item with an empty data set for each year
 																				if (objIndex < 0) {
@@ -175,6 +181,10 @@ exports.computerList = function computerList(params, callback) {
 																							newItem.data[item.yearIndex] = item.data;
 																						}
 																					}
+
+																							if(item.label.toLowerCase() == 'javascript' && item.yearIndex === 0){
+																								console.log(newItem);
+																							}
 																					// set language name
 																					newItem.label = item.label;
 																					// set background color
