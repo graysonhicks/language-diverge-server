@@ -167,9 +167,7 @@ exports.computerList = function computerList(params, callback) {
 																				var objIndex = results.findIndex(
 																					obj => obj.label.toLowerCase() === item.label.toLowerCase()
 																				);
-																							if(item.label.toLowerCase() == "javascript"){
-																								console.log(item, objIndex);
-																							}
+																			
 
 																				// if it does not, build a new item with an empty data set for each year
 																				if (objIndex < 0) {
