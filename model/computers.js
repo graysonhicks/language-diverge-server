@@ -155,12 +155,15 @@ exports.computerList = function computerList(params, callback) {
 
 																			var results = [];
 
-																			
+
 
 																			// loop over flattened array
 																			for (var i = 0; i < computers["final"].length; i++) {
 																				// alias item
 																				var item = computers["final"][i];
+																				if(item.label.toLowerCase() == "javascript"){
+																					console.log(item);
+																				}
 
 																				// see if language already exists in results array
 																				var objIndex = results.findIndex(
@@ -188,7 +191,7 @@ exports.computerList = function computerList(params, callback) {
 																					// if it does exist already, just replace the 0 in data array with new data value for the correct year
 																					results[objIndex]["data"][item.yearIndex] = item.data;
 																				}
-																				console.log(results[i]["data"][item.yearIndex] );
+
 																			}
 
 																			callback("", results);
