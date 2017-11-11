@@ -159,7 +159,7 @@ exports.computerList = function computerList(params, callback) {
 																			for (var i = 0; i < computers["final"].length; i++) {
 																				// alias item
 																				var item = computers["final"][i];
-																				if(item.label.toLowerCase() == 'javascript' && item.yearIndex === 0){
+																				if(item.label.toLowerCase() == 'javascript'){
 																					console.log(item);
 																				}
 																				// see if language already exists in results array
@@ -167,7 +167,7 @@ exports.computerList = function computerList(params, callback) {
 																					obj => obj.label.toLowerCase() === item.label.toLowerCase()
 																				);
 
-																					if(item.label.toLowerCase() == 'javascript' && item.yearIndex === 0){
+																					if(item.label.toLowerCase() == 'javascript'){
 																						console.log(objIndex);
 																					}
 
@@ -182,7 +182,7 @@ exports.computerList = function computerList(params, callback) {
 																						}
 																					}
 
-																							if(item.label.toLowerCase() == 'javascript' && item.yearIndex === 0){
+																							if(item.label.toLowerCase() == 'javascript'){
 																								console.log(newItem);
 																							}
 																					// set language name
