@@ -155,7 +155,7 @@ exports.computerList = function computerList(params, callback) {
 
 																			var results = [];
 
-																			console.log(computers["so2011"]);
+																			console.log(computers["final"]);
 
 																			// loop over flattened array
 																			for (var i = 0; i < computers["final"].length; i++) {
