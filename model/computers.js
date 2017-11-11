@@ -188,6 +188,7 @@ exports.computerList = function computerList(params, callback) {
 																					// if it does exist already, just replace the 0 in data array with new data value for the correct year
 																					results[objIndex]["data"][item.yearIndex] = item.data;
 																				}
+																				console.log(results[objIndex]["data"][item.yearIndex] );
 																			}
 
 																			callback("", results);
