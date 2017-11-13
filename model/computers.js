@@ -1,6 +1,6 @@
 var _ = require("underscore");
 
-import colors from "./colors";
+var colors = require("./colors");
 
 var collections = ["so2011", "so2012", "so2013", "so2014", "so2015", "so2016"];
 
@@ -137,19 +137,15 @@ exports.computerList = function computerList(params, callback) {
 
 																			var results = [];
 
-
-
 																			// loop over flattened array
 																			for (var i = 0; i < computers["final"].length; i++) {
 																				// alias item
 																				var item = computers["final"][i];
 
-
 																				// see if language already exists in results array
 																				var objIndex = results.findIndex(
 																					obj => obj.label.toLowerCase() === item.label.toLowerCase()
 																				);
-																			
 
 																				// if it does not, build a new item with an empty data set for each year
 																				if (objIndex < 0) {
@@ -172,7 +168,6 @@ exports.computerList = function computerList(params, callback) {
 																					// if it does exist already, just replace the 0 in data array with new data value for the correct year
 																					results[objIndex]["data"][item.yearIndex] = item.data;
 																				}
-
 																			}
 
 																			callback("", results);

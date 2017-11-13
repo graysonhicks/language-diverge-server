@@ -1,4 +1,4 @@
-import colors from "./colors";
+var colors = require("./colors");
 
 exports.historicList = function historicList(params, callback) {
 	db

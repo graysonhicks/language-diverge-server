@@ -34,4 +34,4 @@ var colors = [
 	"#EE80FF"
 ];
 
-export default colors;
+exports.colors = colors;
