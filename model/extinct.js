@@ -1,4 +1,4 @@
-var colors = require("./colors");
+var colors = require("./colors").colors;
 
 exports.extinctList = function extinctList(params, callback) {
 	db

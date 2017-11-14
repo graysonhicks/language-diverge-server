@@ -1,4 +1,4 @@
-var colors = require("./colors");
+var colors = require("./colors").colors;
 
 exports.historicList = function historicList(params, callback) {
 	db

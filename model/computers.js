@@ -2,8 +2,6 @@ var _ = require("underscore");
 
 var colors = require("./colors").colors;
 
-console.log(colors);
-
 var collections = ["so2011", "so2012", "so2013", "so2014", "so2015", "so2016"];
 
 var computers = {
