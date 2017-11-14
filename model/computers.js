@@ -1,6 +1,6 @@
 var _ = require("underscore");
 
-var colors = require("./colors");
+var colors = require("./colors").colors;
 
 console.log(colors);
 
